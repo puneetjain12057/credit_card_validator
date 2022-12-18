@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cardvalidator
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cardvalidator
+  template:
+    metadata:
+      labels:
+        app: cardvalidator
+    spec:
+      containers:
+      - name: creditcardvalidator
+        image: punit12057/credit_card_validator:1
+        ports:
+        - containerPort: 80
